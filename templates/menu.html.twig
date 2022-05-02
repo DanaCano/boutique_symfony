@@ -1,0 +1,80 @@
+{% block header %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light boubou">
+  <div class="container-fluid">
+    <style>
+        .logo{padding:0; margin:0;}
+    </style>
+    <a class="navbar-brand logo" href="{{ path('app_home') }}"> <img src="https://i.imgur.com/XRTCbVg.png" alt=""
+    width=70px></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse color" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" id="accueil" aria-current="page" href="{{ path('app_home') }}">Accueil</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" type="button" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Equipement
+          </a>                                         
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+                {% for affichages in affichage %}       
+            <li><a class="dropdown-item" href="{{path('app_category_show', {'id': affichages.id })}}">{{ affichages.name}}</a></li>
+          {% endfor %} 
+          </ul>
+        
+         
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Nutrition
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% for affichages in affichage1 %}       
+              <li><a class="dropdown-item" href="{{path('app_category_show', {'id': affichages.id })}}">{{ affichages.name}}</a></li>
+            {% endfor %} 
+
+          </ul>
+          </li>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_produit_index')}}" id="navbarDropdown">TOUS NOS PRODUITS</a>
+          </li>
+        </li>
+        {% if is_granted("ROLE_ADMIN") %}                  
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" type="button" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Espace administrateur
+          </a>                                         
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">                     
+            <li><a class="dropdown-item" href="{{ path('app_product_index') }}">Gestion des produits</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_category_index') }}">Gestion des catégories</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_order_index') }}">Gestion des commandes</a></li>
+            <li><a class="dropdown-item" href="{{ path('app_user_index') }}">Gestion des utilisateurs</a></li>
+          </ul>
+        {% endif %}
+      </ul>
+
+      <form class="d-flex" action="{{ path('app_search')}}">
+        <input class="form-control me-2" name="search" type="search" placeholder="Recherche" aria-label="Search">
+        <button class="btn btn-outline-success me-2" type="submit"> <img src="https://cdn-icons-png.flaticon.com/512/151/151773.png" width="20px"></button>
+        {% if app.user %}
+          <a class="navbar-brand" href="{{ path('app_account') }}"> <img src="https://cdn-icons-png.flaticon.com/512/18/18148.png" alt=""
+        width=20px></a>
+        <a class="navbar-brand" href="{{ path('app_logout') }}"> <img src="https://cdn-icons-png.flaticon.com/512/158/158730.png" alt=""
+        width=20px></a>
+        {% else %}
+          <a class="navbar-brand" href="{{ path('app_login') }}"> <img src="https://cdn-icons-png.flaticon.com/512/18/18148.png" alt=""
+          width=20px></a>
+        {% endif %}
+
+        <a class="navbar-brand" href="{{ path('cart_index') }}"> <img src="https://freepikpsd.com/file/2019/10/icone-panier-png-Transparent-Images-Free.png" alt=""
+        width=20px> </a>
+        
+      </form>
+    </div>
+  </div>
+</nav>
+<br>
+{% endblock %}
+<br>

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du produit{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class= "col-md-5">
+            <img id="picture" src="{{ asset('image/' ~ product.image) }}" alt="{{ product.name }}" class="img-fluid">
+        </div>
+        
+        <div class="col-md-7">
+            <h2>{{product.name}}</h2>
+            <span class="product-page-price">{{product.price|number_format(2,',',' ')}} €</span>
+            <hr><br>
+            <p>{{ product.description|nl2br }}</p>
+            <br>
+            <a href="{{path("cart_add", {id: product.id})}}" class="btn btn-success">Ajouter au panier</a>
+        </div>
+    </div>
+
+{% endblock %}

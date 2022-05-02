@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche{% endblock %}
+
+{% block body %}
+<br><h2>Résultat de la recherche pour : <font color="red">{{ mot }}</font></h2><br>
+
+    {# <h4>Nombre de résultats</h4> #}
+
+    <section class="row">
+        
+        {% for product in products %}
+        <div class="col-5 mt-5">
+        <div class="border border-dark rounded p-2 clearfix">
+            {{include ("search/card.html.twig")}}
+        </div>
+        </div>
+
+        {% else %}
+        <p>Pas de résultat à votre recherche</p>
+
+        {% endfor %}
+    </section>
+
+{% endblock %}

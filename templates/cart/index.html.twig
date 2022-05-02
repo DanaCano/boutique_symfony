@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier{% endblock %}
+
+{% block body %}
+   
+        <h1>Mon panier</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Produit</th>
+                <th scope="col"></th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Total</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for element in dataPanier %}
+            <tr>
+                <th>
+                    <img src="{{ asset('image/' ~ element.produit.image) }}" alt="{{ element.produit.name }}" height="75px"><br>
+                </th>
+                 
+                <td>{{ element.produit.name }}</td>
+                <td><a href="{{path("cart_remove", {id: element.produit.id})}}" class="">
+                    <i class="fa-solid fa-circle-minus"></i>
+                    </a>  <b> x {{ element.quantite }} </b>
+                    <a href="{{path("cart_add", {id: element.produit.id})}}" class="">
+                            <i class="fa-solid fa-circle-plus"></i>
+                    </a>
+                </td>
+
+                <td>{{ element.produit.price|number_format(2,',',' ') }} €</td>
+                
+                <td>{{ (element.quantite * element.produit.price)|number_format(2,',',' ') }} €</td>
+                <td>
+
+
+                    <a href="{{path("cart_delete", {id: element.produit.id})}}" class="">
+                            <i class="fa-solid fa-trash-can"></i>
+                    </a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" class="text-center">Votre panier est vide</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <br>
+        <div class="text-end mb-5">
+            <p class="product-page-price"><b>Total de mon panier :</b> {{ total|number_format(2,',',' ') }} € </p>
+            
+            <a href="{{path("cart_delete_all")}}" class=""> <i class="fa-solid fa-trash-can"></i>
+            </a>
+            <br>
+            <a href="{{path('order')}}" class="btn btn-success btn-block mt-3">Valider mon panier</a>
+        </div>
+
+    
+{% endblock %}

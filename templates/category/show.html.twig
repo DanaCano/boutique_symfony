@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block body %}
+    
+    <h1 style="text-align: center;">{{ category.name }}</h1>
+    <table class="table">
+        <tbody>
+            {% for product in products %}
+            <div id="produits">
+                <div id="genblock">
+                    <div class="block">                                   
+                        <img id="picture" src="{{ asset('image/' ~ product.image) }}" alt="{{ product.name }}" width="62%" height="62%">
+                        <span id="prix">{{ product.price|number_format(2,',',' ') }}€</span>
+                        <h3>{{ product.name }}</h3>
+                        <hr>
+                        <p class="description">{{ product.description|nl2br }}</p>                        
+                    </div>  
+                    <button id="bouton"><a href="{{ path('app_produit_show', {'id': product.id}) }}">Voir le produit</a>
+                    </button>                                
+                </div> 
+                                
+            </div>                                                              
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

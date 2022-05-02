@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+    <div class="mb-3">
+        {# PROFIL #}
+        <h1>Mon Compte</h1>
+        {# BIENVENUE + PRENOM ET NOM #}
+        Bienvenue {{ app.user.firstname }} {{ app.user.lastname }}  dans votre compte.<br/>
+        <ul>
+            <li>Email: {{ app.user.email }}</li>
+            <li>Nom: {{ app.user.lastname }}</li>
+            <li>Prénom: {{ app.user.firstname }}</li>
+            <li>Adresse: {{ app.user.address }}</li>
+            <li>Code Postal: {{ app.user.zipcode }}</li>
+            <li>Ville: {{ app.user.city }}</li>
+        </ul>
+            <hr>
+            <a href="{{ path('app_account_password') }}">Modifier mon mot de passe</a><br>
+    </div>
+{% endblock %}

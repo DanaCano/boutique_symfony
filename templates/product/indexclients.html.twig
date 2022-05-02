@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits{% endblock %}
+
+{% block body %}
+
+    <h1>Nos produits</h1>
+
+    <section class="row">
+        {% for product in products %}
+
+        <div class="col-5 mt-5">
+        <div class="border border-dark rounded p-2 clearfix">
+
+        {{include ("search/card.html.twig")}}
+        </div>
+        </div>
+
+        {% else %}
+            <span>Pas de résultat</span>
+        {% endfor %}
+    </section>
+{% endblock %}

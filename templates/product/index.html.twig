@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des produits{% endblock %}
+
+
+
+{% block body %}
+
+    <h1>Gestion des produits</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description|nl2br }}</td>
+                <td>{{ product.price|number_format(2,',',' ') }}</td>
+                <td><img src="{{ asset('image/' ~ product.image) }}" alt="" class="miniature"></td>
+                <td>
+                    <a href="{{ path('app_product_show', {'id': product.id}) }}"><button>show</button></a>
+                    <a href="{{ path('app_product_edit', {'id': product.id}) }}"><button>edit</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_product_new') }}">Create new</a>
+{% endblock %}

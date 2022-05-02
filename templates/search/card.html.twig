@@ -1,0 +1,13 @@
+
+        <a href="{{ path('app_produit_show', {'id': product.id}) }}" class="card-link">
+            <div class="card shadow-lg" style="">
+                 <div class="card-body">
+                    <img class="mx-auto d-block img-fluid" src="{{ asset('image/' ~ product.image) }}" alt="{{ product.name }}" width="150px" height="150px">
+                    <br>
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <br>
+                    <h5 class="card-text">{{product.price}} €</h5>
+         
+                 </div>
+            </div>
+        </a>

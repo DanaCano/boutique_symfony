@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Valider ma commande - Fitnow{% endblock %}
+
+{% block body %}
+    <h2>Je passe ma commande</h2>
+    <p>Choisissez vos préférences avant de passer votre commande sur Fitnow</p>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            {% set formHtml %}
+                {{form_start(form, {action: path('order_recap')})}}
+                {{form_end(form)}}
+            {% endset %}
+
+
+            {{formHtml|replace({'[br]' : '<br/>','[b]' : '<b>','[be]' : '</b>'})|raw}}
+
+
+        </div>
+        <div class="col-md-6">
+            <div class="text-center">
+                <b>Récapitulatif de ma commande</b><br>
+            </div>
+            <div class="order-summary">
+                {% for key,element in cart %}
+                    <div class="row {% if key>0 %}mt-2 {% endif %}">
+                        <div class="col-2"><img src="{{ asset('image/' ~ element.produit.image) }}" alt="{{ element.produit.name }}" height="75px">
+                        </div>
+                        <div class="col-8 my-auto">
+                        {{element.produit.name}}
+                        </div>
+                        <div class="col-2 my-auto">
+                        x {{element.quantite}}
+                        </div>
+                    </div> 
+                {% endfor %}
+            </div>
+        </div> 
+
+    </div>
+{% endblock %}

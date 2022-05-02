@@ -1,0 +1,188 @@
+@import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+}
+
+#navbarDropdown,
+#accueil {
+    font-family: "Kanit", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-left: 10px;
+}
+
+.boubou {
+    background-color: rgb(235, 235, 235) !important;
+}
+
+.color {
+    ul {
+        li {
+            a {
+                color: black !important;
+            }
+        }
+    }
+}
+.color {
+    ul {
+        li {
+            a:hover {
+                color: red !important;
+            }
+        }
+    }
+}
+
+.dropdown-item {
+    font-family: "Kanit", sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+#navbarDropdown:hover {
+    color: red;
+}
+
+#accueil:hover {
+    color: red;
+}
+
+#produits {
+    display: flex;
+    justify-content: center;
+}
+
+#genblock {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 0.5px solid black;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    width: 45%;
+    justify-content: center;
+}
+
+.description {
+    padding-top: 2%;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: large;
+}
+
+#prix {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-left: 7%;
+}
+
+#bouton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 0.5px solid black;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    width: 30%;
+    margin-right: 10%;
+    margin-left: 37%;
+    font-family: "Bebas Neue", cursive;
+    background-color: black;
+}
+
+button > a {
+    color: white;
+    text-decoration: none;
+    font-size: larger;
+    letter-spacing: 1px;
+}
+
+h3 {
+    text-align: center;
+    font-family: "Bebas Neue", cursive;
+}
+
+#cart {
+    text-align: center;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: "Bebas Neue", cursive;
+    font-size: 50px;
+    letter-spacing: 1cm;
+    margin-left: 60px;
+}
+
+.miniature {
+    height: 100px;
+    width: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+a:hover {
+    color: red;
+}
+
+h5,
+h6 {
+    text-align: center;
+}
+
+h2,
+#picture {
+    margin-top: 30px;
+}
+
+.card-body {
+    box-shadow: 1px 1px 1px 1px rgb(37, 6, 6);
+    height: 300px;
+}
+
+.card:hover {
+    transition: transform 0.2s;
+    transform: scale(1.012);
+}
+
+.product-page-price {
+    font-size: 25px;
+}
+
+footer > ul {
+    font-family: "Bebas Neue", cursive;
+}
+
+footer > ul:hover {
+    color: rgb(148, 4, 4);
+}
+
+
+
+.col-form-label{
+    font-weight: bold;
+
+}
+
+.order-summary {
+    background-color: rgba(128, 128, 128, 0.27);
+    padding: 20px;
+    margin-top: 12px;
+}
